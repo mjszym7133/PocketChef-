@@ -6,6 +6,10 @@ message = ''
 choice = ''
 x = []
 
+
+   
+    
+
 #This is the instruction text 
 while choice != 'exit':
     choice = raw_input("\nDo you want to Encrypt or Decrypt the message?\nEnter Encrypt,"
@@ -24,14 +28,13 @@ while choice != 'exit':
         if result == '':
             message = raw_input("\nWould you like to save message?: ")
 
-            if choice == 'Yes':
-                list.append(x)
             
-
     if choice == 'View':
-        print(x) 
-                
+        print(x)
 
+    if choice == 'Yes':
+        x.append(result)
+     
  #This is the logic for Decrypting a message            
 
 
@@ -46,9 +49,13 @@ while choice != 'exit':
 
         if result == '':
             message = raw_input("\nWould you like to save message?: ")
+    elif choice == 'Yes' :
+        x.append(result)
 
-
-    elif choice != 'Exit' and choice!= 'encrypt' and choice != 'decrypt':
+    elif choice != 'Exit' and choice!= 'encrypt' and choice != 'decrypt' and \
+         choice != 'Yes' and choice != 'View':
         print ("You have entered an invalid choice. Please try again.\n\n")
-    
 
+  
+ 
+        
