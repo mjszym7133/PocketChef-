@@ -1,14 +1,11 @@
 #Python Encryption program Version 1.0
 #Proof of concept 
 
-result = ''
-message = ''
+
+Input = ''
 choice = ''
 x = []
 
-
-   
-    
 
 #This is the instruction text 
 while choice != 'exit':
@@ -19,43 +16,41 @@ while choice != 'exit':
     if choice == 'Encrypt':
         message = raw_input("\nEnter the message to encrypt: ")
 
+        result = ''
         for i in range(0, len(message)):
             result = result + chr(ord(message[i]) - 2)
+            
 
         print (result + '\n\n')
-        result = ''
 
-        if result == '':
-            message = raw_input("\nWould you like to save message?: ")
-
+        save = raw_input("\nWould you like to save message?: ")
+        if save == 'Yes':
+            x.append((message, result))
             
-    if choice == 'View':
-        print(x)
-
-    if choice == 'Yes':
-        x.append(result)
-     
+ 
  #This is the logic for Decrypting a message            
 
 
     elif choice == 'Decrypt':
         message = raw_input("\nEnter the message to decrypt: ")
 
+        result = ''
         for i in range(0, len(message)):
             result = result + chr(ord(message[i]) + 2)
 
         print (result + '\n\n')
-        result = ''
-
-        if result == '':
-            message = raw_input("\nWould you like to save message?: ")
-    elif choice == 'Yes' :
-        x.append(result)
+  
+        save = raw_input("\nWould you like to save message?: ")
+            
+        if save == 'Yes':
+            x.append((message, result))
 
     elif choice != 'Exit' and choice!= 'encrypt' and choice != 'decrypt' and \
          choice != 'Yes' and choice != 'View':
         print ("You have entered an invalid choice. Please try again.\n\n")
 
+    elif choice == 'View':
+        print(x)
   
  
         
