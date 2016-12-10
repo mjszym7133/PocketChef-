@@ -50,7 +50,8 @@ while choice != 'exit':
         print ("You have entered an invalid choice. Please try again.\n\n")
 
     elif choice == 'View':
-        print(x)
+        print("\n".join(map(str, x)))
+        
   
  
         
