@@ -11,7 +11,7 @@ x = []
 #This is the instruction text 
 while choice != 'exit':
     choice = raw_input("\nDo you want to Encrypt or Decrypt the message?\nEnter Encrypt,"
-                       "Decrypt, Exit Program, or view saved messages.: ")
+                       "Decrypt, Exit Program, Delete All Messages or View Saved Messages.: ")
 
 #This is the logic for Encrypting a message 
     if choice == 'Encrypt':
@@ -27,6 +27,7 @@ while choice != 'exit':
         save = raw_input("\nWould you like to save message?: ")
         if save == 'Yes':
             x.append((message, result))
+            
             
             for item in x:
                 fh = open('Message_DataBase', 'a')
@@ -59,12 +60,17 @@ while choice != 'exit':
                 
 
     elif choice != 'Exit' and choice!= 'encrypt' and choice != 'decrypt' and \
-         choice != 'Yes' and choice != 'View':
+         choice != 'Yes' and choice != 'View' and choice != 'Delete':
         print ("You have entered an invalid choice. Please try again.\n\n")
 
     elif choice == 'View':
         fh = open('Message_DataBase', 'r')
         print fh.readlines()
+        fh.close()
+
+    elif choice == 'Delete':
+        fh = open('Message_DataBase', 'w')
+        print fh.write('')
         fh.close()
         
   
